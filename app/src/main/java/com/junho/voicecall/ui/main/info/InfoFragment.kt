@@ -1,4 +1,4 @@
-package com.junho.voicecall.ui.main.dashboard
+package com.junho.voicecall.ui.main.info
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.junho.voicecall.R
 
-class DashboardFragment : Fragment() {
+class InfoFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var infoViewModel: InfoViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProvider(this).get(DashboardViewModel::class.java)
+        infoViewModel =
+                ViewModelProvider(this).get(InfoViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
         val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        infoViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
