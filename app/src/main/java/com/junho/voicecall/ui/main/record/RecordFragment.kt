@@ -1,4 +1,4 @@
-package com.junho.voicecall.ui.main.search
+package com.junho.voicecall.ui.main.record
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.junho.voicecall.R
 
-class SearchFragment : Fragment() {
+class RecordFragment : Fragment() {
 
-    private lateinit var searchViewModel: SearchViewModel
+    private lateinit var recordViewModel: RecordViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        searchViewModel =
-                ViewModelProvider(this).get(SearchViewModel::class.java)
+        recordViewModel =
+                ViewModelProvider(this).get(RecordViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_notifications, container, false)
         val textView: TextView = root.findViewById(R.id.text_notifications)
-        searchViewModel.text.observe(viewLifecycleOwner, Observer {
+        recordViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
